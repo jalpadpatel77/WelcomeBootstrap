@@ -1,0 +1,136 @@
+﻿
+@{
+
+}
+<style>
+    standardW{
+        width: 35px;
+    }
+</style>
+
+<div class="row">
+    <div class="col-md-12 text-center h2 " style="color:forestgreen">
+        Welcome to factorial
+    </div>
+</div>
+
+
+
+<div class="row text-center">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <input id="fact" type="number" placeholder="Enter Number" />
+            </div>
+            </div>
+        <h2></h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <button id="btnFact" class="btn btn-success standardW">Calculate</button>
+                </div>
+                <div class="col-md-4">
+                    <button id="btnToggle2" class="btn btn-primary standardW">Show code</button>
+                </div>
+                <div class="col-md-4">
+                    <button id="btnClear2" class="btn btn-danger standardW">Clear</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 text-center h4" style="color:forestgreen">
+
+                </div>
+            </div>
+
+
+
+            <div class="row" style=" color:blue">
+                <p id="factOut" h3></p>
+
+            </div>
+
+        </div>
+</div>
+<div class=" row">
+    <div class=" col-md-12">
+        <div id="code2">
+            <pre class="brush:js">
+            $("#btnFact").click(function () {
+
+                    //Step 1: Get Data
+                    var number = +$("#fact").val();
+
+                    if (number > 170) {
+                        alert(".....");
+                        $("#fact").val("");
+                        return;
+                    }
+                    else {
+                        //Step 2
+                        for (var loop = number - 1; loop > 1; loop--) {
+                            // Step 3 calculate Factorial
+                            //number = number * loop
+                            number *= loop;
+                        }
+                        $("#factOut").text(number);
+
+                    }
+                });
+
+                $("#btnClear2").click(function () {
+                    $("#fact").val("");
+                    $("#factOut").text("");
+                });
+</pre>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+
+    <script>
+            $("#btnFact").click(function () {
+
+                    //Step 1: Get Data
+                    var number = +$("#fact").val();
+
+                    if (number > 170) {
+                        alert(".....");
+                        $("#fact").val("");
+                        return;
+                    }
+                    else {
+                        //Step 2
+                        for (var loop = number - 1; loop > 1; loop--) {
+                            // Step 3 calculate Factorial
+                            //number = number * loop
+                            number *= loop;
+                        }
+                        $("#factOut").text(number);
+
+                    }
+                });
+
+                $("#btnClear2").click(function () {
+                    $("#fact").val("");
+                    $("#factOut").text("");
+                });
+        $("#code2").hide();
+        $("#btnToggle2").click(function () {
+            $("#code2").toggle();
+            if ($(this).text() == "Show code") {
+                $(this).text("Hide code");
+            }
+            else {
+                 $(this).text("Show code");
+            }
+
+        });
+
+
+
+    </script>
+
+
+
+}

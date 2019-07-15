@@ -1,0 +1,157 @@
+﻿
+@{
+
+}
+
+
+<style>
+     .Fizz {
+        color: blue ;
+          }
+     .Buzz {
+        color: red;
+    }
+    .FizzBuzz {
+        color: forestgreen;
+    }
+</style>
+
+
+<div class="row" style=" color:darkred">
+    <div class="col-md-12 text-center h2">
+        Welcome to FIZZBUZZ
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="row text-center" style="color:green">
+            <h3>Please enter first number</h3>
+            <input id="fizzIn1" type="number" placeholder="Enter Number1:" />
+        </div>
+        <div class="row text-center" style="color:green">
+            <h3>Please enter second number</h3>
+            <input id="fizzIn2" type="number" placeholder="Enter Number2:" />
+        </div>
+        <h3>________________________________</h3>
+    </div>
+
+    <div class="col-md-6 h2">
+        
+            <div class="row">
+                <div class="col-md-12 text-center h4" style="color:forestgreen">
+                    <u>Result:   </u>
+                </div>
+            </div>
+           <p> <span id="fizzOut"></span></p> 
+                
+        
+     </div>
+
+ </div> <!--Row-->
+ <div class="row">
+        <div class="col-md-4 text-center">
+            <button id="btnFizz" class="btn btn-primary  ">Let'sBuzz</button>
+        </div>
+        <div class="col-md-4 text-center">
+            <button id="btnToggle4" class="btn btn-success ">Show code</button>
+        </div>
+        <div class="col-md-4 text-center">
+                <button id="btnClear4" class="btn btn-danger  ">WipeOut</button>
+         </div>
+     
+ </div>
+
+    <div class=" row">
+        <div class=" col-md-12">
+            <div id="code4">
+                <pre class="brush:js">    
+
+ $("#btnFizz").click(function () {
+
+            var num1 = +$("#fizzIn1").val();
+
+            var num2 = +$("#fizzIn2").val();
+
+            for (var counter = 1, array = [], Fizz = 0, Buzz = 0; counter <= 100; counter++) {
+                Fizz = counter % num1;
+                Buzz = counter % num2;
+                if (!Fizz && !Buzz) {
+                    array.push("<span class='FizzBuzz'>FizzBuzz</span>");
+                } else if (!Fizz) {
+                    array.push("<span class='Fizz'>Fizz</span>");
+                } else if (!Buzz) {
+                    array.push("<span class='Buzz'>Buzz</span>");
+                }else
+                    array.push(counter);
+                               
+            }
+
+            var output = array.join(', ');
+            $("#fizzOut").html(output);
+
+        });
+
+        $("#btnClear4").click(function () {
+            $("#fizzIn1").val("");
+            $("#fizzIn2").val("");
+            $("#fizzOut").text("");
+        });
+
+
+</pre>
+            </div>
+        </div>
+    </div>
+
+
+
+    @section scripts{
+        <script>
+            $("#btnFizz").click(function () {
+
+                var num1 = +$("#fizzIn1").val();
+
+                var num2 = +$("#fizzIn2").val();
+
+                for (var counter = 1, array = [], Fizz = 0, Buzz = 0; counter <= 100; counter++) {
+                    Fizz = counter % num1;
+                    Buzz = counter % num2;
+                    if (!Fizz && !Buzz) {
+                        array.push("<span class='FizzBuzz'>FizzBuzz</span>");
+                    } else if (!Fizz) {
+                        array.push("<span class='Fizz'>Fizz</span>");
+                    } else if (!Buzz) {
+                        array.push("<span class='Buzz'>Buzz</span>");
+                    } else
+                        array.push(counter);
+
+                }
+
+                var output = array.join(', ');
+                $("#fizzOut").html(output);
+
+            });
+
+            $("#btnClear4").click(function () {
+                $("#fizzIn1").val("");
+                $("#fizzIn2").val("");
+                $("#fizzOut").html("");
+            });
+
+            $("#code4").hide();
+            $("#btnToggle4").click(function () {
+                $("#code4").toggle();
+                if ($(this).text() == " Show code") {
+                    $(this).text("Hide code");
+                }
+                else {
+                    $(this).text("Show code");
+                }
+
+            });
+
+        </script>
+    }
+

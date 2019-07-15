@@ -1,0 +1,195 @@
+﻿
+@{
+
+}
+
+
+<style>
+    .standardW {
+        width: 135px;
+        margin-top: 10px;
+    }
+</style>
+
+<div class="row text-danger">
+    <div class="col-md-12 text-center">
+        <h2>Sum Of All Fears</h2>
+    </div>
+</div>
+
+<div class="row" style="color:green">
+    <div class="col-md-12 ">
+        <h4>
+            The Sum of All Fears coding challenge involves an array of integers and some number called 'k'.
+            If'K can be derived from adding any two numbers from the array then it is said to contain that 'k' value. If given an array = [10,4,6,7] and
+            a 'k' value of 17, the array contains the 'k' value because 10 + 7 = 'k'
+        </h4>
+    </div>
+</div>
+
+<div class="row text-primary">
+    <div class="col-md-12 text-center">
+        <h4> Create a searchable array by entering 6 numbers</h4>
+    </div>
+</div>
+
+<div class=" col-md-2">
+    <input id="fear1" type="number" place holder=" Enter Number1: " />
+</div>
+<div class=" col-md-2">
+    <input id="fear2" type="number" place holder=" Enter Number2: " />
+</div>
+<div class=" col-md-2">
+    <input id="fear3" type="number" place holder=" Enter Number3: " />
+</div>
+<div class=" col-md-2">
+    <input id="fear4" type="number" place holder=" Enter Number4: " />
+</div>
+<div class=" col-md-2">
+    <input id="fear5" type="number" place holder=" Enter Number5: " />
+</div>
+<div class=" col-md-2">
+    <input id="fear6" type="number" place holder=" Enter Number6: " />
+</div>
+<div class=" row text-warning text-center">
+    <h3>Establish a k value by entering a number </h3>
+</div>
+
+
+<div class="row text-center">
+    <input id="kvalue" type="number" class="kvalue" />
+</div>
+
+<div class=" row">
+
+    <div class=" col-md-4 text-center">
+        <button id="btnFear" class=" btn btn-primary standardW">Search</button>
+    </div>
+
+
+    <div class="col-md-4 text-center">
+        <button id="btnToggle5" class="btn btn-success standardW">Show code</button>
+    </div>
+
+    <div class="col-md-4 text-center">
+        <button id="btnClear5" class="btn btn-danger standardW">WipeOut</button>
+    </div>
+
+</div>
+
+
+<div class="row text-center h3">
+    <p id="fearOut"></p>
+</div>
+
+<div class=" row">
+    <div class=" col-md-12">
+        <div id="code5">
+            <pre class="brush:js">
+ $("#btnFear").click(function () {
+            var myArray = new Array();
+            myArray.push(+$("#fear1").val());
+            myArray.push(+$("#fear2").val());
+            myArray.push(+$("#fear3").val());
+            myArray.push(+$("#fear4").val());
+            myArray.push(+$("#fear5").val());
+            myArray.push(+$("#fear6").val());
+
+
+            var kvalue = +$("#kvalue").val();
+
+
+            for (index = 0, found = false; index <= myArray.length - 1; index++) {
+                var position = myArray.indexOf(kvalue - myArray[index], index + 1);
+                if (position > 0) {
+                    found = true;
+                    break;
+                }
+            }
+            if (found) {
+                $("#fearOut").html("<b>" + kvalue + "</b> was found by adding" + " <span class='target'>" + myArray[index] + "</span> and <span class='target'>" + myArray[position] + "</span>");
+                return;
+            }
+
+            else {
+                $("#fearOut").text(" not found");
+            }
+
+        });
+
+        $("#btnClear5").click(function () {
+            $(myArray()).val();
+            $("#kvalue").val();
+            $("#fearOut").text("");
+
+        });
+
+</pre>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $("#btnFear").click(function () {
+            var myArray = new Array();
+            myArray.push(+$("#fear1").val());
+            myArray.push(+$("#fear2").val());
+            myArray.push(+$("#fear3").val());
+            myArray.push(+$("#fear4").val());
+            myArray.push(+$("#fear5").val());
+            myArray.push(+$("#fear6").val());
+            
+            var kvalue = +$("#kvalue").val();
+            
+            for (index = 0, found = false; index <= myArray.length - 1; index++) {
+                var position = myArray.indexOf(kvalue - myArray[index], index + 1);
+                if (position > 0) {
+                    found = true;
+                    break;
+                }
+            }
+            if (found) {
+                $("#fearOut").html("<b>" + kvalue + "</b> was found by adding" + " <span class= 'target'>" + myArray[index] + "</span> and <span class='target'>" + myArray[position] + "</span>");
+                return;
+
+            }
+
+            else {
+                $(myArray()).val();
+                $("#fearOut").text(" not found");
+            }
+
+
+
+
+        });
+
+        $("#btnClear5").click(function () {
+
+            $("#fear1, #fear2, #fear3, #fear4, #fear5, #fear6").val("");
+
+            $("#kvalue").val("");
+            $("#fearOut").text("");
+        });
+
+        $("#code5").hide();
+        $("#btnToggle5").click(function () {
+            $("#code5").toggle();
+            if ($(this).text() == " Show code") {
+                $(this).text(" Hide code");
+            }
+            else {
+                $(this).text("Show code");
+            }
+
+        });
+
+    </script>
+
+}
+
+
+
+
+

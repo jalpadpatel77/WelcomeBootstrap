@@ -1,0 +1,134 @@
+﻿
+@{
+    
+}
+
+    <style>
+        .standardW {
+            width: 135px;
+            margin-top: 10px;
+        }
+    </style>
+
+
+
+<div class="row" style=" color:blueviolet">
+    <div class="col-md-12 text-center h2">
+        Welcome to Palindrome
+    </div>
+</div>
+
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <input id="palIn" type="text" placeholder="Enter word" />
+            </div>
+        </div>
+        <h2> </h2>
+
+        <div class="row">
+
+            <div class="col-md-4">
+                <button id="btnPal2" class="btn btn-primary standardW">Show  the Result</button>
+            </div>
+            <div class="col-md-4">
+                <button id="btnToggle6" class="btn btn-success standardW">Show code</button>
+            </div>
+            <div class="col-md-4">
+
+                <button id="btnClear6" class="btn btn-danger standardW">Clear</button>
+            </div>
+
+        </div>
+        <div class="row h2" style="color:darkmagenta">
+            <div class="col-md-12 text-center">
+                <p id="palOut"></p>
+
+            </div>
+        </div>
+    </div>
+    <div class=" row">
+        <div class=" col-md-12">
+            <div id="code6">
+                <pre class="brush:js">
+                       $("#btnPal2").click(function () {
+                        var word = $("#palIn").val();
+
+                        var revword = word.split('').reverse().join('');
+
+                        var message = "";
+
+                        if (word == revword) {
+                            message = word + " reversed = " + revword. + " Therefore, " + word + "  is a Palindrome.";
+                        }
+                        else {
+                            message = word + "  reversed != " + revword. + "  Therefore, " + word + "  is a  not Palindrome.";
+                        }
+
+                        $("#palOut").text(message);
+
+
+                    });
+
+                    $("#btnClear6").click(function () {
+                        $("#palIn").val("");
+                        $("#palOut").text("");
+                    });
+</pre>
+            </div>
+        </div>
+    </div>
+
+
+
+    @section scripts{
+
+
+        <script>
+
+            
+
+            $("#btnPal2").click(function () {
+                var word = $("#palIn").val();
+                var wordlower = word.toLowerCase();
+                 var oneword = wordlower.replace(/\s+/g, '');
+                var revword = oneword.split('').reverse().join('');
+
+                var message = "";
+
+                if (oneword == revword) {
+                    message = word + " reversed = " + revword +  " Therefore, " + word + "  is a Palindrome.";
+                }
+                else {
+                    message = word + "  reversed != " + revword +  "  Therefore, " + word + "  is a  not Palindrome.";
+                }
+
+                $("#palOut").text(message);
+
+
+            });
+
+            $("#btnClear6").click(function() {
+                $("#palIn").val("");
+                $("#palOut").text("");
+            });
+
+            $("#code6").hide();
+            $("#btnToggle6").click(function() {
+            $("#code6").toggle();
+            if ($(this).text() == "Show code") {
+                $(this).text("Hide code");
+            }
+            else {
+                 $(this).text("Show code");
+            }
+
+        });
+
+
+        </script>
+
+    }

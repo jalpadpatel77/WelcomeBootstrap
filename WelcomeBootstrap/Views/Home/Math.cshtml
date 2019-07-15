@@ -1,0 +1,197 @@
+﻿
+
+@{
+    ViewBag.Title = "Math";
+}
+
+<h2>Math</h2>
+
+
+<!-- Math Problems-->
+<style>
+    .standardW {
+        width: 135px;
+        margin-top: 10px;
+    }
+</style>
+
+<div class="row">
+    <div class="col-md-12 text-center h3" style=" color:royalblue">
+        ..Let's Add, Substract, Find Min, Find Max and Average Numbers..
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-6">Enter Number 1:</div>
+            <div class="col-md-6">
+                <input type="Number" id="mathnum1" class="form-control" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">Enter Number 2:</div>
+            <div class="col-md-6">
+                <input type="Number" id="mathnum2" class="form-control" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">Enter Number 3:</div>
+            <div class="col-md-6">
+                <input type="Number" id="mathnum3" class="form-control" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">Enter Number 4:</div>
+            <div class="col-md-6">
+                <input type="Number" id="mathnum4" class="form-control" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">Enter Number 5:</div>
+            <div class="col-md-6">
+                <input type="Number" id="mathnum5" class="form-control" />
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="col-md-6">
+        <div class="col-md-12 text-center" style="color:darkred" h3>
+           
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6" style="color:firebrick">
+            <p id="smallest"></p>
+        </div>
+        <div class="col-md-6" style="color:firebrick">
+            <p id="largest"></p>
+        </div>
+        <div class="col-md-6" style="color:firebrick">
+            <p id="sum"></p>
+        </div>
+        <div class="col-md-6" style="color:firebrick">
+            <p id="product"></p>
+        </div>
+        <div class="col-md-6" style="color:firebrick">
+            <p id="average"></p>
+        </div>
+
+
+    </div>
+    <div class="row">
+        <div class="col-md-4 text-center">
+            <button id="mathBtn" class="btn btn-primary standardW">Calculate</button>
+        </div>
+        <div class="col-md-4 text-center">
+            <button id="btnToggle1" class="btn btn-success standardW">Show code</button>
+        </div>
+        <div class="col-md-4 text-center">
+            <button id="clearBtn1" class="btn btn-danger standardW">WipeOut</button>
+        </div>
+    </div>
+</div>
+<div class=" row">
+    <div class=" col-md-12">
+        <div id="code1">
+            <pre class="brush:js">
+                $("#mathBtn").click(function () {
+
+            var num1 = Number($("#mathnum1").val());
+            var num2 = Number($("#mathnum2").val());
+            var num3 = Number($("#mathnum3").val());
+            var num4 = Number($("#mathnum4").val());
+            var num5 = Number($("#mathnum5").val());
+
+            //Step 2
+
+            var smallest = Math.min(num1, num2, num3, num4, num5);
+            var largest = Math.max(num1, num2, num3, num4, num5);
+            var sum = num1 + num2 + num3 + num4 + num5;
+            var product = num1 * num2 * num3 * num4 * num5;
+            var average = sum / 5;
+
+            //step 3
+
+            $("#smallest").text(" The smallest number is:" + smallest);
+            $("#largest").text(" The largest number is:" + largest);
+            $("#sum").text(" The sum is:" + sum);
+            $("#product").text(" The product is:" + product);
+            $("#average").text(" The average number:" + average);
+
+            $("#clearBtn1").click(function () {
+                $("#mathnum1, #mathnum2, #mathnum3, #mathnum4, #mathnum5").val("");
+                $("#smallest").text("");
+                $("#largest").text("");
+                $("#sum").text("");
+                $("#product").text("");
+                $("#average").text("");
+            });
+
+        });
+
+</pre>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+@section scripts{
+    <script>
+        $("#mathBtn").click(function () {
+
+            var num1 = Number($("#mathnum1").val());
+            var num2 = Number($("#mathnum2").val());
+            var num3 = Number($("#mathnum3").val());
+            var num4 = Number($("#mathnum4").val());
+            var num5 = Number($("#mathnum5").val());
+
+            //Step 2
+
+            var smallest = Math.min(num1, num2, num3, num4, num5);
+            var largest = Math.max(num1, num2, num3, num4, num5);
+            var sum = num1 + num2 + num3 + num4 + num5;
+            var product = num1 * num2 * num3 * num4 * num5;
+            var average = sum / 5;
+
+            //step 3
+
+            $("#smallest").text(" The smallest number is:" + smallest);
+            $("#largest").text(" The largest number is:" + largest);
+            $("#sum").text(" The sum is:" + sum);
+            $("#product").text(" The product is:" + product);
+            $("#average").text(" The average number:" + average);
+
+            $("#clearBtn1").click(function() {
+                $("#mathnum1, #mathnum2, #mathnum3, #mathnum4, #mathnum5").val("");
+                $("#smallest").text("");
+                $("#largest").text("");
+                $("#sum").text("");
+                $("#product").text("");
+                $("#average").text("");
+            });
+
+        });
+
+        $("#code1").hide();
+            $("#btnToggle1").click(function() {
+            $("#code1").toggle();
+            if ($(this).text() == "Show code") {
+                $(this).text("Hide code");
+            }
+            else {
+                 $(this).text("Show code");
+            }
+
+        });
+
+    </script>
+
+
+}
