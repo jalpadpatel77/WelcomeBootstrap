@@ -144,6 +144,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="img\about-banner.jpg" />
     <Content Include="img\bg-banner03.jpg" />
+    <Content Include="img\SThomas1.JPG" />
+    <Content Include="img\SThomas2.JPG" />
     <Content Include="img\port01.jpg" />
     <Content Include="img\port02.jpg" />
     <Content Include="img\port03.jpg" />
